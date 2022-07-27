@@ -1,0 +1,40 @@
+{
+  "name": "javascript-mvc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uzihoon/javascript-mvc.git"
+  },
+  "keywords": [],
+  "author": "uzihoon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uzihoon/javascript-mvc/issues"
+  },
+  "homepage": "https://github.com/Uzihoon/javascript-mvc#readme",
+  "dependencies": {
+    "@types/jest": "^28.1.6",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.3",
+    "node-sass": "^7.0.1",
+    "postcss-loader": "^7.0.1",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "ts-jest": "^28.0.7",
+    "ts-loader": "^9.3.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
+  }
+}
