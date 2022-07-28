@@ -1,7 +1,9 @@
+import { animalList, INPUT_FORM_CLASS } from './constant';
+import template from './template';
 import { Action, View as ViewListType } from './types';
 import utils from './utils';
 export default class View {
-  private ViewList: ViewListType[] = [
+  private viewList: ViewListType[] = [
     {
       id: 'name',
       title: 'Name',
@@ -55,5 +57,18 @@ export default class View {
 
   bindEvent(event: string, callback: Action, parentClassName: string, className: string) {
     this.bindDelegate(event, callback, parentClassName, className);
+  }
+
+  initialGenerate() {
+    this.generateElement(INPUT_FORM_CLASS, this.viewList);
+  }
+
+  generateElement(parentClassName: string, elementList: any[]) {
+    const parentElement = this.getElement(parentClassName, 'section');
+
+    elementList.forEach(element => {
+      const key = element.type || 'term';
+      this.displayElement(parentElement, template[key](element, animalList));
+    });
   }
 }

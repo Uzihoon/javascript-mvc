@@ -8,15 +8,15 @@ module.exports = (env, options) => {
   return {
     mode: options.mode,
     entry: {
-      app: [path.join(__dirname, 'src', 'index')]
+      app: [path.join(__dirname, 'src', 'index')],
     },
     devtool: isDev ? 'source-map' : false,
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'public')
+      path: path.resolve(__dirname, 'public'),
     },
     resolve: {
-      extensions: ['.ts', '.js', '.css', '.scss']
+      extensions: ['.ts', '.js', '.css', '.scss'],
     },
     module: {
       rules: [
@@ -24,14 +24,14 @@ module.exports = (env, options) => {
           test: /\.(ts)$/,
           enforce: 'pre',
           use: 'ts-loader',
-          exclude: /node_modules/
+          exclude: /node_modules/,
         },
         { test: /\.(css)$/, use: ['style-loader', 'css-loader'] },
         {
           test: /\.scss$/,
-          use: ['style-loader', 'cssloader', 'sass-loader']
-        }
-      ]
+          use: ['style-loader', 'css-loader', 'sass-loader'],
+        },
+      ],
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
@@ -41,10 +41,10 @@ module.exports = (env, options) => {
           {
             inject: true,
             template: 'index.html',
-            showErrors: isDev
-          }
-        )
-      )
-    ]
+            showErrors: isDev,
+          },
+        ),
+      ),
+    ],
   };
 };

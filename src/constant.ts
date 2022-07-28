@@ -20,3 +20,6 @@ export const animalList = [
     name: 'Lion',
   },
 ];
+
+export const INPUT_FORM_CLASS = 'identity-field';
+export const INPUT_CLASS = 'identity-input';

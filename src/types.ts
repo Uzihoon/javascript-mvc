@@ -25,3 +25,15 @@ export type State = {
 export type Callback = (state: State) => void;
 
 export type Action = (el: EventTarget, event: Event) => void;
+
+export type RuleList = {
+  [P in InputType]: { min: number; max: number; validate: RegExp };
+};
+
+export type TypeList = {
+  [P in InputType]: RegExp;
+};
+
+export type Formatter = {
+  [P in InputType]: null | { pattern: RegExp; replace: string };
+};
