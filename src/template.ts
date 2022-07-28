@@ -7,7 +7,7 @@ const template: Template = {
       <h3 class="identity-title">
         <label for=${id}>${title}</label>
       </h3>
-      <input class="identity-input" placeholder=${title} type=${inputType} id=${id} />
+      <input class="identity-input" placeholder=${title} type=${inputType || 'string'} id=${id} />
       <span class="icon-arrow"></span>
     </div>
     `;

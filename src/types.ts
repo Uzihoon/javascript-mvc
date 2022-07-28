@@ -6,7 +6,7 @@ export type View = {
   id: ViewType;
   type: 'input' | 'select';
   title: string;
-  inputType: string;
+  inputType?: string;
 };
 
 export type Carrier = {
@@ -23,3 +23,5 @@ export type State = {
 };
 
 export type Callback = (state: State) => void;
+
+export type Action = (el: EventTarget, event: Event) => void;
