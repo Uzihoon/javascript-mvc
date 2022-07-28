@@ -6,3 +6,262 @@ $lightGray: #f5f5f5;
 $darkGray: #969ca2;
 $normalGray: #e9eaeb;
 $errorColor: #f32e29;
+
+#app {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+// Wrapper style
+.wrapper {
+  width: 80%;
+  margin: auto;
+  max-width: 430px;
+  padding: 30px;
+}
+
+// Header styel
+header {
+  padding: 20px;
+  .title {
+    color: $darkColor;
+    font-size: 1.6em;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  .description {
+    font-size: 1.15em;
+    color: $pointColor;
+  }
+}
+
+// Content style
+.content {
+  // identity field
+  .identity-container {
+    padding: 0 20px;
+    padding-bottom: 35px;
+    border-bottom: 2px solid $lightGray;
+
+    .identity-field {
+      .identity-group {
+        margin-bottom: 30px;
+        color: $darkGray;
+
+        &.error-identity {
+          color: $errorColor;
+
+          .identity-input {
+            border-color: $errorColor;
+          }
+        }
+
+        .identity-title {
+          font-weight: 400;
+          font-size: 1.1em;
+          margin-bottom: 7px;
+        }
+
+        .identity-input,
+        .identity-select {
+          font-size: 1.8em;
+          width: 100%;
+          font-weight: 700;
+          border-bottom: 2px solid $normalGray;
+          padding: 3px;
+
+          &::placeholder {
+            color: #c8cbce;
+          }
+
+          &:focus {
+            border-color: #3d4348;
+          }
+        }
+
+        .identity-select {
+          &:invalid {
+            color: #c8cbce;
+          }
+        }
+      }
+    }
+  }
+
+  // Term field
+  .term-container {
+    padding: 20px;
+    padding-top: 30px;
+
+    .term-chk,
+    #chk-all {
+      display: none;
+    }
+    .term-group {
+      margin-bottom: 10px;
+    }
+
+    .check-all-box {
+      margin: 25px 0 0 0;
+    }
+
+    // Checkbox check시 style
+    .term-chk:checked + .term-label,
+    #chk-all:checked + .term-label {
+      .term-title,
+      .term-chk-all-title {
+        color: $darkColor;
+      }
+
+      .icon-line {
+        background-color: $darkColor;
+      }
+
+      .border-icon {
+        border: 1px solid $darkColor;
+      }
+    }
+    .term-chk:checked + .term-label + .term-arrow {
+      &::before {
+        border-color: $darkColor;
+      }
+    }
+
+    .term-label {
+      position: relative;
+      cursor: pointer;
+
+      .term-title,
+      .term-chk-all-title {
+        padding-left: 43px;
+        color: $darkGray;
+      }
+
+      .term-title {
+        padding-top: 3px;
+      }
+
+      .term-chk-all-title {
+        font-size: 1.2em;
+        padding-top: 2px;
+        color: $darkColor;
+      }
+    }
+
+    // Term icon
+    .term-icon {
+      width: 27px;
+      height: 27px;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      &.border-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid $normalGray;
+      }
+
+      .icon-line {
+        height: 3px;
+        background-color: $normalGray;
+        display: block;
+        border-radius: 10px;
+        position: absolute;
+        z-index: 10;
+
+        &.short {
+          top: 14px;
+          left: 4px;
+          width: 10px;
+          transform: rotate(45deg);
+        }
+
+        &.long {
+          top: 12px;
+          right: 3px;
+          width: 15px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  // Button box
+  .button-box {
+    padding: 10px;
+
+    .submit-button {
+      width: 100%;
+      padding: 18px;
+      color: #ffffff;
+      text-align: center;
+      background-color: #272a2e;
+      border-radius: 10px;
+      font-size: 1em;
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// Infomation
+.info-box {
+  position: relative;
+  color: $darkGray;
+
+  .question-icon {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid;
+    text-align: center;
+    font-size: 0.6em;
+  }
+
+  .info-text {
+    padding-left: 25px;
+    font-size: 1em;
+    font-weight: 400;
+  }
+}
+
+// Arrwo icon
+.icon-arrow {
+  position: relative;
+  &::before {
+    position: absolute;
+    position: absolute;
+    content: '';
+    top: -0.3rem;
+    right: 0.04rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-top: 0.125rem solid $darkGray;
+    border-right: 0.125rem solid $darkGray;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  &.term-arrow {
+    &::before {
+      top: -0.8rem;
+      border-color: $normalGray;
+    }
+  }
+}

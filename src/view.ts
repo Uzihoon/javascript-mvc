@@ -1,4 +1,5 @@
 import { animalList, INPUT_FORM_CLASS } from './constant';
+import layout from './layout';
 import template from './template';
 import { Action, View as ViewListType } from './types';
 import utils from './utils';
@@ -45,22 +46,32 @@ export default class View {
     if (!validElement) {
       validElement = document.createElement(elementType);
       validElement.setAttribute('class', className);
-      document.body.appendChild(validElement);
+      document.querySelector('#app')!.appendChild(validElement);
     }
 
     return validElement;
   }
 
-  displayElement(parent: Element, virtualElement: string) {
-    parent.insertAdjacentHTML('beforeend', virtualElement);
+  displayElement(virtualElement: string, parent?: Element) {
+    const rootElement = document.querySelector('#app')!;
+    const element = parent || rootElement;
+    element.insertAdjacentHTML('beforeend', virtualElement);
   }
 
   bindEvent(event: string, callback: Action, parentClassName: string, className: string) {
     this.bindDelegate(event, callback, parentClassName, className);
   }
 
-  initialGenerate() {
-    this.generateElement(INPUT_FORM_CLASS, this.viewList);
+  async initialGenerate() {
+    await this.generateWrapper();
+    this.generateElement(`.${INPUT_FORM_CLASS}`, this.viewList);
+  }
+
+  generateWrapper() {
+    return new Promise(res => {
+      this.displayElement(layout);
+      setTimeout(() => res(''), 10);
+    });
   }
 
   generateElement(parentClassName: string, elementList: any[]) {
@@ -68,7 +79,7 @@ export default class View {
 
     elementList.forEach(element => {
       const key = element.type || 'term';
-      this.displayElement(parentElement, template[key](element, animalList));
+      this.displayElement(template[key](element, animalList), parentElement);
     });
   }
 }
