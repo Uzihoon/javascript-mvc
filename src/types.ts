@@ -13,3 +13,13 @@ export type Carrier = {
   id: string;
   name: string;
 };
+
+export interface Template {
+  [s: string]: (view: View, carrier: Carrier[]) => string;
+}
+
+export type State = {
+  [P in ViewType]: string;
+};
+
+export type Callback = (state: State) => void;
