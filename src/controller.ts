@@ -36,14 +36,14 @@ export default class Controller {
     const eventList = [
       {
         type: 'input',
-        parentClassName: INPUT_FORM_CLASS,
-        className: INPUT_CLASS,
+        parentClassName: `.${INPUT_FORM_CLASS}`,
+        className: `.${INPUT_CLASS}`,
         callback: this.inputValuAction.bind(this),
       },
       {
         type: 'change',
-        parentClassName: INPUT_FORM_CLASS,
-        className: INPUT_CLASS,
+        parentClassName: `.${INPUT_FORM_CLASS}`,
+        className: `.${INPUT_CLASS}`,
         callback: this.changeInputAction.bind(this),
       },
     ];

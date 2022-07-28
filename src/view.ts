@@ -62,16 +62,9 @@ export default class View {
     this.bindDelegate(event, callback, parentClassName, className);
   }
 
-  async initialGenerate() {
-    await this.generateWrapper();
+  initialGenerate() {
+    this.displayElement(layout);
     this.generateElement(`.${INPUT_FORM_CLASS}`, this.viewList);
-  }
-
-  generateWrapper() {
-    return new Promise(res => {
-      this.displayElement(layout);
-      setTimeout(() => res(''), 10);
-    });
   }
 
   generateElement(parentClassName: string, elementList: any[]) {
